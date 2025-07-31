@@ -16,7 +16,7 @@ app = Flask(__name__)
 OUTPUT_DIR = "output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-@app.route('/translate', methods=['POST'])
+@app.route('/transcribe', methods=['POST'])
 def translate_audio():
     if not request.json or 'audio_url' not in request.json:
         return jsonify({'error': 'Missing audio_url'}), 400
@@ -53,4 +53,5 @@ def translate_audio():
     return jsonify({'translated_transcript': transcript})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5009,debug=True)
+
