@@ -1,0 +1,9 @@
+# git+https://github.com/openai/whisper.git
+flask
+# torch
+# torchvision
+# torchaudio
+fireworks-ai
+
+# firework api
+# fw_3ZZTkpH2coFSZspjJQChc5d1
