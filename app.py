@@ -53,4 +53,4 @@ def translate_audio():
     return jsonify({'translated_transcript': transcript})
 
 if __name__ == '__main__':
-    app.run(debug=False, port=5009)
+    app.run(host='0.0.0.0', port=5000)
