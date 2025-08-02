@@ -64,8 +64,8 @@ import tempfile
 from groq import Groq
 
 app = Flask(__name__)
-client = Groq(api_key="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")
-
+# client = Groq(api_key="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")
+client = Groq(api_key=os.environ["GROQ_API_KEY"])
 @app.route("/transcribe", methods=["POST"])
 def transcribe_audio():
     data = request.get_json()
