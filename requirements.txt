@@ -7,4 +7,3 @@ fireworks-ai
 
 # firework api
 # fw_3ZZTkpH2coFSZspjJQChc5d1
-# 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
