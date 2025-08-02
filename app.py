@@ -62,9 +62,17 @@ import os
 import requests
 import tempfile
 from groq import Groq
-
+from dotenv import load_dotenv
 app = Flask(__name__)
-client = Groq(api_key=os.environ["GROQ_API_KEY"])
+
+load_dotenv()
+
+api_key = os.getenv("GROQ_API_KEY")
+if not api_key:
+    raise ValueError("GROQ_API_KEY is missing. Check your .env file.")
+
+
+client = Groq(api_key=api_key)
 @app.route("/transcribe", methods=["POST"])
 def transcribe_audio():
     data = request.get_json()

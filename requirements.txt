@@ -4,6 +4,7 @@ flask
 # torchvision
 # torchaudio
 fireworks-ai
-
+python-dotenv
+groq
 # firework api
 # fw_3ZZTkpH2coFSZspjJQChc5d1
