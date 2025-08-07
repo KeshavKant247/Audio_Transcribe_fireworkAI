@@ -5,7 +5,7 @@
 # from openai import OpenAI
 
 # # Replace this with your actual Fireworks API key
-# FIREWORKS_API_KEY = "fw_3ZZTkpH2coFSZspjJQChc5d1"
+# FIREWORKS_API_KEY = "fw_3ZjacaXmVb7tNgRoRNpxVdWM"
 
 # client = OpenAI(
 #     base_url="https://audio-prod.us-virginia-1.direct.fireworks.ai/v1",
@@ -97,6 +97,8 @@ def transcribe_audio():
             transcription = client.audio.transcriptions.create(
                 file=(os.path.basename(tmp_file_path), file.read()),
                 model="whisper-large-v3",
+                # model = "whisper-large-v3-turbo",
+                prompt="\"\"\"\nYou are a transcription assistant for Indian sales calls. Transcribe the call exactly as spoken, without summarizing, translating, or correcting grammar. Preserve Hindi, English, and Hinglish as is. Include all filler words (\"umm\", \"haan\", etc.). Label speakers clearly as \"Counselor:\" and \"Student:\". Use \"[inaudible]\" for unclear audio. Do not skip silences, pauses, or repetitions. Transcribe line by line, starting a new line with each speaker turn. Example:\n\nCounselor: Hello, I’m calling from Adda247.\nStudent: Haan ji, boliye.\n\nDo not explain or add anything outside the transcript. Just return the full verbatim call transcript.\n\"\"\"\n",
                 response_format="verbose_json",
             )
 
@@ -111,4 +113,4 @@ def transcribe_audio():
             os.remove(tmp_file_path)
 
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0")
+    app.run(debug=True,host="0.0.0.0",port="5009")
